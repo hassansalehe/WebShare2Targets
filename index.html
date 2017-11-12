@@ -3,6 +3,25 @@
     <title>Web Share Demo with two targets having the same title</title>
   </head>
   <body>
-    <h2> Two Targets Web Share Demo</h2>
+    <center>
+      <h2> Two Targets Web Share Demo</h2>
+      
+      input id="shareFirstTarget" type="button" value="Share first target" onClick="shareContent()" />
+      input id="shareSecondTarget" type="button" value="Share second target" onClick="chareContent()" />
+    </center>
   </body>
+  <script>
+    // Reference: https://developers.google.com/web/updates/2016/09/navigator-share
+    function shareContent() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Web Fundamentals',
+          text: 'Check out Web Fundamentals — it rocks!',
+          url: 'https://developers.google.com/web',
+        })
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing', error));
+      }
+    }
+  </script>
 </html>
