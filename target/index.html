@@ -1,0 +1,17 @@
+<html>
+<head>
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <script>
+    function onLoad() {
+      var parsedUrl = new URL(window.location.toString());
+      console.log("Title shared: " + parsedUrl.searchParams.get("title"));
+      console.log("Text shared: " + parsedUrl.searchParams.get("text"));
+      console.log("URL shared: " + parsedUrl.searchParams.get("url"));
+    }
+
+    window.addEventListener('load', onLoad);
+  </script>
+</body>
+</html>
